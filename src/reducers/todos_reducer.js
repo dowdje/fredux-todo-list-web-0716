@@ -4,7 +4,7 @@ export function todosReducer (state=[], action) {
       return [...state, action.payload];
     case 'DELETE_TASK':
       let ind = action.payload.index
-      return state.splice(ind, 1)
+      return state.slice(0,ind).concat(state.slice(ind+1))
     default:
       return state;
   }
